@@ -1,21 +1,4 @@
-const API_KEY = "&apiKey=a38d9a5560114809bad1ba8be8df849c";
-const TOP_HEADLINES =
-  "https://newsapi.org/v2/top-headlines?country=in&apiKey=3b5d0121520742d48d2a1e338737aa5d";
-const Business = `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=3b5d0121520742d48d2a1e338737aa5d`;
-const Entertainment =
-  "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=3b5d0121520742d48d2a1e338737aa5d";
-const Health =
-  "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=3b5d0121520742d48d2a1e338737aa5d";
-
-const Science =
-  "https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=3b5d0121520742d48d2a1e338737aa5d";
-const Sports =
-  "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=3b5d0121520742d48d2a1e338737aa5d";
-const Technology =
-  "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=3b5d0121520742d48d2a1e338737aa5d";
-
-const EVERYTHING = "https://newsapi.org/v2/everything?q=";
-
+const API = "https://newsripper.herokuapp.com/news?category=";
 
 new Vue({
   el: "#app",
@@ -24,12 +7,17 @@ new Vue({
     searchterm: "bitcoin",
     items: [
       { id: 0, name: `Top Headlines`, news: [] },
-      { id: 1, name: `Business`, news: [] },
-      { id: 2, name: `Entertainment`, news: [] },
-      { id: 3, name: `Health`, news: [] },
+      { id: 1, name: `National`, news: [] },
+      { id: 2, name: `World`, news: [] },
+      { id: 3, name: `Business`, news: [] },
       { id: 4, name: `Science`, news: [] },
       { id: 5, name: `Sports`, news: [] },
-      { id: 6, name: `Technology`, news: [] }
+      { id: 6, name: `Technology`, news: [] },
+      { id: 7, name: `Startup`, news: [] },
+      { id: 8, name: `Science`, news: [] },
+      { id: 9, name: `Politics`, news: [] },
+      { id: 10, name: `Automobile`, news: [] },
+      { id: 11, name: `Entertainment`, news: [] },
     ],
 
     getNews: [],
@@ -57,50 +45,98 @@ new Vue({
   },
 
   created() {
-    fetch(TOP_HEADLINES)
+    fetch(API + "all")
       .then((res) => res.json())
       .then((res) => {
-        this.items[0].news = res.articles;
+        this.items[0].news = res.data;
         this.getNews = this.items[0].news;
       })
       .catch((err) => console.log(err));
-
-    fetch(Business)
+    fetch(API + "national")
       .then((res) => res.json())
       .then((res) => {
-        this.items[1].news = res.articles;
+        this.items[1].news = res.data;
+        this.getNews = this.items[1].news;
       })
       .catch((err) => console.log(err));
 
-    fetch(Entertainment)
+    fetch(API + "world")
       .then((res) => res.json())
       .then((res) => {
-        this.items[2].news = res.articles;
+        this.items[2].news = res.data;
+        this.getNews = this.items[2].news;
       })
       .catch((err) => console.log(err));
 
-    fetch(Health)
+    fetch(API + "business")
       .then((res) => res.json())
       .then((res) => {
-        this.items[3].news = res.articles;
+        this.items[3].news = res.data;
+        this.getNews = this.items[3].news;
       })
       .catch((err) => console.log(err));
-    fetch(Science)
+
+    fetch(API + "science")
       .then((res) => res.json())
       .then((res) => {
-        this.items[4].news = res.articles;
+        this.items[4].news = res.data;
+        this.getNews = this.items[4].news;
       })
       .catch((err) => console.log(err));
-    fetch(Sports)
+
+    fetch(API + "sports")
       .then((res) => res.json())
       .then((res) => {
-        this.items[5].news = res.articles;
+        this.items[5].news = res.data;
+        this.getNews = this.items[5].news;
       })
       .catch((err) => console.log(err));
-    fetch(Technology)
+
+    fetch(API + "technology")
       .then((res) => res.json())
       .then((res) => {
-        this.items[6].news = res.articles;
+        this.items[6].news = res.data;
+        this.getNews = this.items[6].news;
+      })
+      .catch((err) => console.log(err));
+
+    fetch(API + "startup")
+      .then((res) => res.json())
+      .then((res) => {
+        this.items[7].news = res.data;
+        this.getNews = this.items[7].news;
+      })
+      .catch((err) => console.log(err));
+
+    fetch(API + "science")
+      .then((res) => res.json())
+      .then((res) => {
+        this.items[8].news = res.data;
+        this.getNews = this.items[8].news;
+      })
+      .catch((err) => console.log(err));
+
+    fetch(API + "politics")
+      .then((res) => res.json())
+      .then((res) => {
+        this.items[9].news = res.data;
+        this.getNews = this.items[9].news;
+      })
+      .catch((err) => console.log(err));
+
+    fetch(API + "automobile")
+      .then((res) => res.json())
+      .then((res) => {
+        this.items[10].news = res.data;
+        this.getNews = this.items[10].news;
+      })
+      .catch((err) => console.log(err));
+
+    fetch(API + "entertainment")
+      .then((res) => res.json())
+      .then((res) => {
+        this.items[11].news = res.data;
+        this.getNews = this.items[11].news;
       })
       .catch((err) => console.log(err));
   },
