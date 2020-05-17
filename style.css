@@ -72,6 +72,13 @@ p {
   
 }
 
+.load{
+  z-index: 1000;
+  padding: 3rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
 button {
   float: left;
 }
