@@ -51,34 +51,22 @@
 
                     <v-layout justify-center>
 
-    
-        
+
 
                         <section>
-        
-                        
-                                
-                        
                             <article>
-                                <div class="load" v-if="loading">
-                                    <h1>loading...</h1>
-                                    <!-- here put a spinner or whatever you want to indicate that a request is in progress -->
-                                </div>
                                 <a target="_blank" class="article" v-for="article in getNews"
-                                    :href="article.readMoreUrl" v-if="!loading">
+                                    :href="article.url || article.webUrl">
 
-                                    <div class="child"><img :src="article.imageUrl" class="thumb"></div>
+                                    <div class="child"><img :src="article.urlToImage" class="thumb"></div>
                                     <div class="child">
                                         <header>
-                                            
                                             <span v-if="!article.webTitle">{{ article.title }}</span>
                                             <span v-else>{{ article.webTitle }}</span>
-                                            <time>{{ formatDate(article.date) }} - {{ article.time }}</time>
-                                            <time></time>
-                                            
+                                            <time>{{ formatDate(article.publishedAt) }}</time>
 
-                                            <p v-if="article.content || article.description">
-                                                {{article.content }}</p>
+                                            <p v-if="article.abstract || article.description">
+                                                {{article.description }}</p>
                                         </header>
                                     </div>
                                 </a>

@@ -48,11 +48,11 @@ section {
 
 time {
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   opacity: 0.8;
   margin-top: 2px;
   font-weight: 600;
-  color: rgb(250, 16, 16);
+  color: #f73030;
 }
 
 header {
@@ -70,13 +70,6 @@ p {
   opacity: 1;
   font-weight: 500;
   
-}
-
-.load{
-  z-index: 1000;
-  padding: 3rem;
-  text-align: center;
-  vertical-align: middle;
 }
 
 button {
@@ -146,7 +139,6 @@ h1 {
   padding: 1.5rem 1rem 1.5rem 1rem;
   transition: 150ms linear;
   display: flex;
-  
   flex-direction: row;
 }
 
